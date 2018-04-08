@@ -1,5 +1,6 @@
 package com.dredom.xml.schema.model;
 
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 /**
@@ -7,7 +8,8 @@ import javax.xml.bind.annotation.XmlType;
  * @author andre
  *
  */
-@XmlType
+@XmlType( namespace = "http://dredom/guild", propOrder = {"id", "name"})
+@XmlRootElement
 public class GuildMembership {
     private Long id;
     private String name;

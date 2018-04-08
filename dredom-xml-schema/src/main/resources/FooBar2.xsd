@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://another/namespace" targetNamespace="http://some/namespace" version="1.0">
+
+  <xs:import namespace="http://another/namespace" schemaLocation="schema2.xsd"/>
+
+  <xs:import schemaLocation="schema3.xsd"/>
+
+  <xs:complexType name="fooBar">
+    <xs:annotation>
+      <xs:documentation><![CDATA[This documentation will be copied as an XML Documentation Annotation for the ComplexType 'FooBar'. Define it to
+augment usability/readability within the generated XSD.
+
+(author): <a href="mailto:lj@jguru.se">Lennart J&ouml;relid</a>]]></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element default="requiredElementValue" name="requiredElement" type="xs:string">
+        <xs:annotation>
+          <xs:documentation><![CDATA[This documentation will be copied as an XML Documentation Annotation for the 'requiredElement'. Define it to
+augment usability/readability within the generated XSD.]]></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element default="requiredElementValue" form="qualified" name="aRequiredElementInAnotherNamespace" type="xs:string"/>
+      <xs:element minOccurs="0" name="optionalElement" type="xs:string">
+        <xs:annotation>
+          <xs:documentation><![CDATA[This documentation will be copied as an XML Documentation Annotation for the 'optionalElement'. Define it to
+augment usability/readability within the generated XSD.]]></xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="guildMemberships" nillable="true">
+        <xs:annotation>
+          <xs:documentation><![CDATA[The Guild Memberships of this FooBar. A nil value implies no GuildMemberships exist.]]></xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="guildMembership" type="guildMembership"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="requiredAttribute" type="xs:string" use="required"/>
+    <xs:attribute name="optionalAttribute" type="xs:string"/>
+  </xs:complexType>
+</xs:schema>

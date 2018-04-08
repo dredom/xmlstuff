@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<empns:Employee  xmlns:empns="https://www.journaldev.com/Employee" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://www.journaldev.com/Employee Employee.xsd ">
+    <empns:id>1234</empns:id>
+    <empns:name>Pankaj</empns:name>
+    <empns:role>Java Developer</empns:role>
+    <empns:age></empns:age>
+</empns:Employee>

@@ -7,6 +7,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 /**
@@ -16,8 +17,10 @@ import javax.xml.bind.annotation.XmlType;
  * @author <a href="mailto:lj@jguru.se">Lennart J&ouml;relid</a>
  */
 @XmlType(namespace = "http://some/namespace", propOrder = { "requiredElement", "aRequiredElementInAnotherNamespace",
-        "optionalElement", "requiredAttribute", "optionalAttribute", "guildMemberships" })
+        "optionalElement", "requiredAttribute", "optionalAttribute" })
+//"optionalElement", "requiredAttribute", "optionalAttribute", "guildMemberships" })
 @XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement
 public class FooBar {
 
     /**
@@ -27,7 +30,7 @@ public class FooBar {
     @XmlElement(required = true, defaultValue = "requiredElementValue")
     private String requiredElement;
 
-    @XmlElement(namespace = "http://another/namespace", required = true, defaultValue = "requiredElementValue")
+    @XmlElement( required = true, defaultValue = "requiredElementValue")
     private String aRequiredElementInAnotherNamespace;
 
     /**
@@ -43,11 +46,52 @@ public class FooBar {
     @XmlAttribute(required = false)
     private String optionalAttribute;
 
-    /**
-     * The Guild Memberships of this FooBar. A nil value implies no GuildMemberships exist.
-     */
-    @XmlElementWrapper(name = "guildMemberships", nillable = true, required = false)
-    @XmlElement(name = "guildMembership")
-    private Set<GuildMembership> guildMemberships;
+//    /**
+//     * The Guild Memberships of this FooBar. A nil value implies no GuildMemberships exist.
+//     */
+//    @XmlElementWrapper(name = "guildMemberships", nillable = true, required = false)
+//    @XmlElement(name = "guildMembership")
+//    private Set<GuildMembership> guildMemberships;
+
+    public String getRequiredElement() {
+        return requiredElement;
+    }
+
+    public void setRequiredElement(String requiredElement) {
+        this.requiredElement = requiredElement;
+    }
+
+    public String getaRequiredElementInAnotherNamespace() {
+        return aRequiredElementInAnotherNamespace;
+    }
+
+    public void setaRequiredElementInAnotherNamespace(String aRequiredElementInAnotherNamespace) {
+        this.aRequiredElementInAnotherNamespace = aRequiredElementInAnotherNamespace;
+    }
+
+    public String getOptionalElement() {
+        return optionalElement;
+    }
+
+    public void setOptionalElement(String optionalElement) {
+        this.optionalElement = optionalElement;
+    }
+
+    public String getRequiredAttribute() {
+        return requiredAttribute;
+    }
+
+    public void setRequiredAttribute(String requiredAttribute) {
+        this.requiredAttribute = requiredAttribute;
+    }
+
+    public String getOptionalAttribute() {
+        return optionalAttribute;
+    }
+
+    public void setOptionalAttribute(String optionalAttribute) {
+        this.optionalAttribute = optionalAttribute;
+    }
+
 
 }
